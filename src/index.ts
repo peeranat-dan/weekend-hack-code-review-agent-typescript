@@ -16,6 +16,8 @@ const ITERATION = 2;
 async function main() {
   console.log("Analyzing PR diff with AI reviewer...");
   console.time("AI Review Time");
+  const t0 = performance.now();
+
   const completion = await client.chat.completions.create({
     model: "glm-5.1",
     reasoning_effort: "high",
@@ -32,6 +34,7 @@ async function main() {
   });
 
   console.timeEnd("AI Review Time");
+  const t1 = performance.now();
 
   for (const choice of completion.choices) {
     const reasoning = (choice.message as any)?.reasoning_content;
@@ -76,6 +79,19 @@ async function main() {
     createFileWithContent(
       `outputs/iteration-${ITERATION}/token-usage.json`,
       JSON.stringify(usage, null, 2),
+    );
+
+    // dump time taken into a file for later analysis
+    const timeTaken = t1 - t0;
+    createFileWithContent(
+      `outputs/iteration-${ITERATION}/time-taken.txt`,
+      `${timeTaken} ms`,
+    );
+
+    // dump the full API response into a file for later analysis
+    createFileWithContent(
+      `outputs/iteration-${ITERATION}/full-api-response.json`,
+      JSON.stringify(completion, null, 2),
     );
   }
 }
