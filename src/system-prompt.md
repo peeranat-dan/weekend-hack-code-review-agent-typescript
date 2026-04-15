@@ -33,3 +33,4 @@ Potential breaking changes or side effects. If none, say "None identified."
 Where reviewers should pay most attention.
 
 Sacrifice grammar for the sake of concision. Use bullet points, not paragraphs.
+Give me a list of unresolved questions to answer, if any.
