@@ -11,7 +11,7 @@ const client = new OpenAI({
   apiKey: process.env.ZAI_API_KEY,
 });
 
-const ITERATION = 2;
+const ITERATION = 3;
 
 async function main() {
   console.log("Analyzing PR diff with AI reviewer...");
