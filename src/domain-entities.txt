@@ -1,0 +1,38 @@
+type Session = {
+    status: "active" | "finished";
+    createdAt: Date;
+    updatedAt: Date;
+    name: string;
+    votingSystem: "fibonacci" | "t-shirt";
+    ownerId: string;
+    id: string;
+}
+
+type Round = {
+    status: "finished" | "in-progress" | "revealed";
+    createdAt: Date;
+    updatedAt: Date;
+    id: string;
+    sessionId: string;
+    averageVote: number | null;
+};
+
+type Participant = {
+    status: "active" | "left" | "removed";
+    createdAt: Date;
+    updatedAt: Date;
+    id: string;
+    sessionId: string;
+    uid: string;
+    displayName: string;
+    role: "owner" | "admin" | "player" | "spectator";
+}
+
+type Vote = {
+    value: number;
+    createdAt: Date;
+    updatedAt: Date;
+    id: string;
+    roundId: string;
+    participantId: string;
+}

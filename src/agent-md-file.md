@@ -149,3 +149,7 @@ export function buildQueryConstraints<T extends Record<string, unknown>>(
   return constraints;
 }
 ```
+
+### Firestore Query Strategy
+
+When querying Firestore, we should always try to minimize the number of queries and the amount of data transferred. We should use indexes to optimize our queries and avoid fetching unnecessary data. When fetching related data (e.g. fetching participants for a session), we should try to fetch all related data in a single query if possible, rather than fetching each related document separately (N+1 query problem). If we need to fetch related data separately, we should consider using Firestore's `in` operator to fetch multiple documents by their IDs in a single query.
