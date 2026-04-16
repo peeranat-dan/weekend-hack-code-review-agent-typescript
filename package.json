@@ -5,7 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "env:encrypt": "dotenvx encrypt"
+    "env:encrypt": "dotenvx encrypt",
+    "env:decrypt": "dotenvx decrypt"
   },
   "keywords": [],
   "author": "",
