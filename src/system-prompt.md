@@ -34,3 +34,10 @@ Where reviewers should pay most attention.
 
 Sacrifice grammar for the sake of concision. Use bullet points, not paragraphs.
 Give me a list of unresolved questions to answer, if any.
+
+## Issues
+
+List every distinct code issue found. Each item must be a single self-contained sentence.
+Format as a JSON array on one line at the very end of your response, after all other sections:
+
+ISSUES_JSON: ["<issue 1>", "<issue 2>", ...]
